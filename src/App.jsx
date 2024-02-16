@@ -1,8 +1,8 @@
 
 import {Routes,Route } from "react-router-dom";
-import Auth from "./pages/auth";
 import {QueryClient,QueryClientProvider} from '@tanstack/react-query'
 import {Toaster} from "react-hot-toast"
+import Auth from "./pages/Auth";
 function App() {
  const queryClient= new QueryClient();
   return (
@@ -12,7 +12,7 @@ function App() {
   <Routes >
      <Route path="/auth" element={<Auth/>}/>
   </Routes>
-  </div>
+   </div>
 </QueryClientProvider>
     );
 }

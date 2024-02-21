@@ -7,7 +7,7 @@ function TextField({label ,value,onChange,name}) {
             <input
              type="text"
              className="textField__input"
-             value={value ||""}
+             value={value}
              onChange={onChange}
              id={name}
              name={name}

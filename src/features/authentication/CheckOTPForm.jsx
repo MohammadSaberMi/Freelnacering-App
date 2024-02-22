@@ -27,13 +27,16 @@ function CheckOTPForm({ phoneNumber, onback, onReSendOtp, otpResponse }) {
     try {
       const { user, message } = await mutateAsync({ phoneNumber, otp });
       toast.success(message);
-      if (user.isActive) {
-        //push to panel base on role
-        //navigate(user.role==="OWNER") navigate("/owner")
-        //navigate(user.role==="FRELANCER") navigate("/frelancer")
-      } else {
-        navigate('/compete-profile');
+      if (!user.isActive) return navigate('/complete-profile');
+      if (user.status !== 2) {
+        navigate('/');
+        toast.error('پروفایل شما در انتظار تایید است ', { icon: '👏' });
+        return;
       }
+
+      if (user.role === 'OWNER') return navigate('/owner');
+      if (user.role === 'FRELANCER') return navigate('/frelancer');
+
       //console.log(data);
       //name ,email ,role =>push to slash owner /freelancer
       //push to complete profile -> name,..

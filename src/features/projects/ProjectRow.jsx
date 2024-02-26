@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Modal from '../../ui/Modal';
-import Table from '../../ui/Tabe';
+import Table from '../../ui/Table';
 import toLocalDateShort from '../../utils/toLocoalDateShort';
 import { toPersianNumbersWithComma } from '../../utils/toPersianNumbers';
 import truncateText from '../../utils/truncatText';

@@ -1,14 +1,14 @@
-function RadioInput({ label, value, onChange, name, id, checked }) {
+function RadioInput({ label, value, register, name, id, watch, validationSchema = {} }) {
   return (
     <div className="flex items-center gap-x-2 text-secondary-600">
       <input
-        className="cursor-pointer w-4 h-4 form-radio text-indigo-300 focus:ring-indigo-600"
+        className="cursor-pointer w-4 h-4 form-radio text-primary-900 focus:ring-primary-900 focus:ring-1"
         type="radio"
         name={name}
         id={id}
         value={value}
-        onChange={onChange}
-        checked={checked}
+        {...register(name, validationSchema)}
+        checked={watch(name) === value}
       />
       <label htmlFor={id}>{label}</label>
     </div>
@@ -16,3 +16,29 @@ function RadioInput({ label, value, onChange, name, id, checked }) {
 }
 
 export default RadioInput;
+
+//function RadioInput({
+//  label,
+//  value,
+//  register,
+//  name,
+//  id,
+//  validationSchema = {},
+//  watch,
+//}) {
+//  return (
+//    <div className="flex items-center gap-x-2 text-secondary-600">
+//      <input
+//        className="cursor-pointer w-4 h-4 form-radio text-primary-900 focus:ring-primary-900 focus:ring-1"
+//        type="radio"
+//        name={name}
+//        id={id}
+//        value={value}
+//        {...register(name, validationSchema)}
+//        checked={watch(name) === value}
+//      />
+//      <label htmlFor={id}>{label}</label>
+//    </div>
+//  );
+//}
+//export default RadioInput;

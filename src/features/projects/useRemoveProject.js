@@ -10,7 +10,7 @@ export default function useRemoveProject() {
     data,
   } = useMutation({
     mutationFn: removeProjectApi,
-    onSuccess: ({ message, data }) => {
+    onSuccess: ({ message }) => {
       //console.log(data);
       toast.success(message);
 

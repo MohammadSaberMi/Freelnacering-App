@@ -4,10 +4,12 @@ import CheckOTPForm from './CheckOTPForm';
 import { getOtp } from '../../services/authService';
 import { useMutation } from '@tanstack/react-query';
 import { toast } from 'react-hot-toast';
+import { useForm } from 'react-hook-form';
 
 function AuthContainer() {
   const [step, setStep] = useState(2);
-  const [phoneNumber, setPhoneNumber] = useState('09944685701');
+  //const [phoneNumber, setPhoneNumber] = useState('09944685701');
+  const { handleSubmit, register, getValues } = useForm();
   const {
     isPending: isSendingOtp,
     mutateAsync,
@@ -16,13 +18,13 @@ function AuthContainer() {
     mutationFn: getOtp,
   });
 
-  const sendOtpHandler = async (e) => {
-    e.preventDefault();
+  const sendOtpHandler = async (data) => {
+    //e.preventDefault();
     try {
-      const data = await mutateAsync({ phoneNumber });
+      const { message } = await mutateAsync(data);
       setStep(2);
-      console.log(data.message);
-      toast.success(data.message);
+      console.log(message);
+      toast.success(message);
     } catch (error) {
       toast.error(error?.response?.data?.message);
     }
@@ -33,19 +35,22 @@ function AuthContainer() {
         return (
           <SendOTPForm
             isSendingOtp={isSendingOtp}
-            onSubmit={sendOtpHandler}
             setStep={setStep}
-            phoneNumber={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
+            onSubmit={handleSubmit(sendOtpHandler)}
+            register={register}
+            //onSubmit={sendOtpHandler}
+            //phoneNumber={phoneNumber}
+            //onChange={(e) => setPhoneNumber(e.target.value)}
           />
         );
       case 2:
         return (
           <CheckOTPForm
-            phoneNumber={phoneNumber}
             onback={(s) => setStep(s - 1)}
             onReSendOtp={sendOtpHandler}
             otpResponse={otpResponse}
+            getValues={getValues('phoneNumber')}
+            //phoneNumber={phoneNumber}
           />
         );
       default:

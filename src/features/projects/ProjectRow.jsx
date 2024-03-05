@@ -8,11 +8,13 @@ import { HiOutlineTrash } from 'react-icons/hi';
 import { TbPencilMinus } from 'react-icons/tb';
 import ConfirmDelete from '../../ui/ConfirmDelete';
 import useRemoveProject from './useRemoveProject';
+import CreateProjectForm from './CreateProjectForm';
+import ToggoleProjectStatus from './ToggoleProjectStatus';
 function ProjectRow({ index, project }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
   const { isDeleting, removeProject, data } = useRemoveProject();
-  console.log(data);
+
   return (
     <Table.Row>
       <td>{index + 1}</td>
@@ -31,11 +33,12 @@ function ProjectRow({ index, project }) {
       </td>
       <td>{project.freelancer?.name || '-'}</td>
       <td>
-        {project.status === 'OPEN' ? (
+        {/*{project.status === 'OPEN' ? (
           <span className="badge badge--success">باز</span>
         ) : (
           <span className="badge badge--danger">بسته</span>
-        )}
+        )}*/}
+        <ToggoleProjectStatus project={project} />
       </td>
       <td>
         <div className="flex items-center gap-x-4">
@@ -50,7 +53,10 @@ function ProjectRow({ index, project }) {
               title="modal title"
               open={isEditOpen}
             >
-              this is Modul...
+              <CreateProjectForm
+                projectToEdit={project}
+                onClose={() => setIsEditOpen(false)}
+              />
             </Modal>
           </>
           <>

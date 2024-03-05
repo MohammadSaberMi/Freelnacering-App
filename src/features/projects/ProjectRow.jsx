@@ -4,16 +4,17 @@ import Table from '../../ui/Table';
 import toLocalDateShort from '../../utils/toLocoalDateShort';
 import { toPersianNumbersWithComma } from '../../utils/toPersianNumbers';
 import truncateText from '../../utils/truncatText';
-import { HiOutlineTrash } from 'react-icons/hi';
+import { HiEye, HiOutlineTrash } from 'react-icons/hi';
 import { TbPencilMinus } from 'react-icons/tb';
 import ConfirmDelete from '../../ui/ConfirmDelete';
 import useRemoveProject from './useRemoveProject';
 import CreateProjectForm from './CreateProjectForm';
 import ToggoleProjectStatus from './ToggoleProjectStatus';
+import { Link } from 'react-router-dom';
 function ProjectRow({ index, project }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
-  const { isDeleting, removeProject, data } = useRemoveProject();
+  const { removeProject } = useRemoveProject();
 
   return (
     <Table.Row>
@@ -83,6 +84,11 @@ function ProjectRow({ index, project }) {
             </Modal>
           </>
         </div>
+      </td>
+      <td>
+        <Link to={project._id}>
+          <HiEye className="w-5 h-5 text-primary-800 flex justify-center" />
+        </Link>
       </td>
     </Table.Row>
   );

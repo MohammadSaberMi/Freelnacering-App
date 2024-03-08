@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import REHSelect from '../../ui/REHSelect';
+import RHFSelect from '../../ui/RHFSelect';
 import TextField from './../../ui/TextField';
 import { useForm } from 'react-hook-form';
 import { TagsInput } from 'react-tag-input-component';
@@ -126,7 +126,7 @@ function CreateProjectForm({ onClose, projectToEdit = {} }) {
           }}
           errors={errors}
         />
-        <REHSelect
+        <RHFSelect
           label="دسته بندی"
           name="category"
           register={register}

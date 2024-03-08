@@ -1,4 +1,4 @@
-function REHSelect({ label, name, register, options, required }) {
+function RHFSelect({ label, name, register, options, required }) {
   return (
     <div>
       <label className="mb-2 block text-secondary-700" htmlFor={name}>
@@ -15,4 +15,4 @@ function REHSelect({ label, name, register, options, required }) {
   );
 }
 
-export default REHSelect;
+export default RHFSelect;

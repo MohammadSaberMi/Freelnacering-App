@@ -11,7 +11,7 @@ function Toggle({ label, enabled, onChange }) {
             onChange={onChange}
             className={`${
               enabled ? 'bg-primary-900' : 'bg-secondary-200'
-            } relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none `}
+            } relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none`}
           >
             <span
               className={`${

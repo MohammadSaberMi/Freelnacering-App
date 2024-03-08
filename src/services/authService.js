@@ -13,3 +13,6 @@ export function completeProfile(data) {
 export function getUser(data) {
   return http.get('/user/profile', data).then(({ data }) => data.data);
 }
+export function logoutApi() {
+  return http.post('/user/logout').then(({ data }) => data.data);
+}

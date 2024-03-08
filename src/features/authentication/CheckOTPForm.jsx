@@ -10,7 +10,7 @@ import { CiEdit } from 'react-icons/ci';
 const RESEND_TIME = 90;
 
 function CheckOTPForm({ phoneNumber, onback, onReSendOtp, otpResponse }) {
-  const [otp, setOtp] = useState(' ');
+  const [otp, setOtp] = useState('');
   const navigate = useNavigate();
   const [time, setTime] = useState(RESEND_TIME);
   const { isPending, mutateAsync } = useMutation({

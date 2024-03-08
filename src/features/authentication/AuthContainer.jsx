@@ -7,7 +7,7 @@ import { toast } from 'react-hot-toast';
 import { useForm } from 'react-hook-form';
 
 function AuthContainer() {
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(1);
   //const [phoneNumber, setPhoneNumber] = useState('09944685701');
   const { handleSubmit, register, getValues } = useForm();
   const {
@@ -46,10 +46,10 @@ function AuthContainer() {
       case 2:
         return (
           <CheckOTPForm
-            onback={(s) => setStep(s - 1)}
             onReSendOtp={sendOtpHandler}
+            phoneNumber={getValues('phoneNumber')}
+            onBack={() => setStep((s) => s - 1)}
             otpResponse={otpResponse}
-            getValues={getValues('phoneNumber')}
             //phoneNumber={phoneNumber}
           />
         );

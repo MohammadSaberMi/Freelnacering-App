@@ -5,7 +5,7 @@ import Stat from '../../ui/Stat';
 function Stats({ proposals }) {
   const numOfProposals = proposals.length;
   const acceptedProposals = proposals.filter((p) => p.status === 2);
-  console.log(acceptedProposals);
+  //console.log(acceptedProposals);
   const balance = acceptedProposals.reduce((acc, curr) => acc + curr.price, 0);
 
   return (

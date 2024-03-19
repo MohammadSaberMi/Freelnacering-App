@@ -1,8 +1,8 @@
 function TextField({
   label,
-  register,
-  validationSchema,
   name,
+  register,
+  validationSchema = {},
   type = 'text',
   required,
   errors,
@@ -10,14 +10,13 @@ function TextField({
   return (
     <div>
       <label className="mb-2 block text-secondary-700" htmlFor={name}>
-        {label}
-        {required && <span className="text-error">*</span>}
+        {label} {required && <span className="text-error">*</span>}
       </label>
       <input
         {...register(name, validationSchema)}
-        type={type}
-        className="textField__input"
         id={name}
+        className="textField__input"
+        type={type}
         autoComplete="off"
       />
       {errors && errors[name] && (
@@ -26,5 +25,4 @@ function TextField({
     </div>
   );
 }
-
 export default TextField;

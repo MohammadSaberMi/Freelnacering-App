@@ -3,7 +3,6 @@
 import UserAvatar from '../features/authentication/UserAvatar';
 import useUser from '../features/authentication/useUser';
 import HeaderMenu from './HeaderMenu';
-import App from './../App';
 
 function Header() {
   //const { data } = useUser();

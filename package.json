@@ -12,8 +12,10 @@
   "dependencies": {
     "@headlessui/react": "^1.7.18",
     "@tanstack/react-query": "^5.20.2",
+    "@tanstack/react-query-devtools": "^5.28.4",
     "axios": "^1.6.7",
     "prettier": "^3.2.5",
+    "query-string": "^9.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.50.1",

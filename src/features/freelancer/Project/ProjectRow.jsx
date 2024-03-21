@@ -6,7 +6,7 @@ import toLocalDateShort from './../../../utils/toLocoalDateShort';
 import { useState } from 'react';
 import Modal from './../../../ui/Modal';
 import CreateProposal from '../../Proposals/CreateProposal';
-const porjectStaatus = {
+const projectStatus = {
   OPEN: {
     label: 'باز',
     className: 'badge--success',
@@ -26,8 +26,8 @@ function ProjectRow({ index, project }) {
       <td>{toPersianNumbersWithComma(budget)}</td>
       <td>{toLocalDateShort(deadline)}</td>
       <td>
-        <span className={`badge ${porjectStaatus[status].className}`}>
-          {porjectStaatus[status].label}
+        <span className={`badge ${projectStatus[status].className}`}>
+          {projectStatus[status].label}
         </span>
       </td>
       <td>
